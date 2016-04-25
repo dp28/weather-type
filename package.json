@@ -1,0 +1,41 @@
+{
+  "name": "weather-type",
+  "version": "0.0.0",
+  "description": "A library for comparing and averaging weather type strings",
+  "main": "dist/weather-type.js",
+  "scripts": {
+    "test": "karma start",
+    "compile": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dp28/weather-type.git"
+  },
+  "keywords": [
+    "weather"
+  ],
+  "author": "Daniel Patterson <dan24patt@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dp28/weather-type/issues"
+  },
+  "homepage": "https://github.com/dp28/weather-type#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "karma": "^0.13.22",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.2",
+    "karma-mocha-reporter": "^2.0.2",
+    "karma-notify-reporter": "^0.1.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.4",
+    "karma-typescript-preprocessor2": "^1.1.1",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "sinon": "^1.17.3",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.0"
+  }
+}
