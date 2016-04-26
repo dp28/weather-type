@@ -44,7 +44,15 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	console.log('test');
+	"use strict";
+	var WeatherType = (function () {
+	    function WeatherType(raw) {
+	        this.raw = raw;
+	    }
+	    return WeatherType;
+	}());
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = WeatherType;
 
 
 /***/ }

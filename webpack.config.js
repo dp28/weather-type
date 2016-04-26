@@ -1,5 +1,5 @@
 module.exports = {
-  entry: './src/index.ts',
+  entry: './src/weather-type.ts',
   output: {
     filename: 'dist/weather-type.js'
   },
