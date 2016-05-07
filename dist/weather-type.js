@@ -53,6 +53,30 @@
 	}());
 	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = WeatherType;
+	var PreciptitationType;
+	(function (PreciptitationType) {
+	    PreciptitationType[PreciptitationType["Rain"] = 0] = "Rain";
+	    PreciptitationType[PreciptitationType["Sleet"] = 1] = "Sleet";
+	    PreciptitationType[PreciptitationType["Snow"] = 2] = "Snow";
+	    PreciptitationType[PreciptitationType["Hail"] = 3] = "Hail";
+	})(PreciptitationType || (PreciptitationType = {}));
+	var PrecipitationIntensity;
+	(function (PrecipitationIntensity) {
+	    PrecipitationIntensity[PrecipitationIntensity["Light"] = 0] = "Light";
+	    PrecipitationIntensity[PrecipitationIntensity["Heavy"] = 1] = "Heavy";
+	})(PrecipitationIntensity || (PrecipitationIntensity = {}));
+	var PrecipitationDuration;
+	(function (PrecipitationDuration) {
+	    PrecipitationDuration[PrecipitationDuration["Showers"] = 0] = "Showers";
+	    PrecipitationDuration[PrecipitationDuration["Steady"] = 1] = "Steady";
+	})(PrecipitationDuration || (PrecipitationDuration = {}));
+	var CloudLevel;
+	(function (CloudLevel) {
+	    CloudLevel[CloudLevel["Broken"] = 0] = "Broken";
+	    CloudLevel[CloudLevel["Light"] = 1] = "Light";
+	    CloudLevel[CloudLevel["Heavy"] = 2] = "Heavy";
+	    CloudLevel[CloudLevel["Fog"] = 3] = "Fog";
+	})(CloudLevel || (CloudLevel = {}));
 
 
 /***/ }
