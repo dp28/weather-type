@@ -1,7 +1,6 @@
 node_modules/
-*.js.map
-test/**.*.js
+test/
 typings/
-dist/
+src/
 .DS_Store
 npm-debug.log
