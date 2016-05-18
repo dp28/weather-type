@@ -38,5 +38,8 @@
     "sinon": "^1.17.3",
     "typescript": "^1.8.10",
     "webpack": "^1.13.0"
+  },
+  "dependencies": {
+    "option-t": "^0.18.3"
   }
 }
