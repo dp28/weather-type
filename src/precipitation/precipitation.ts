@@ -1,5 +1,6 @@
 import { Some, None, Option } from 'option-t';
 import { getClosestName } from '../enum-utils';
+import { buildWeatherCode } from '../weather-code-utils';
 
 export enum Level {
   None,
@@ -41,10 +42,6 @@ export default class Precipitation {
     const duration = getClosestName(Duration, this.duration);
     if (duration !== Duration[Duration.Steady])
       codeParts.push(duration);
-    return asWeatherCode(codeParts);
+    return buildWeatherCode(codeParts);
   }
-}
-
-function asWeatherCode(parts: Array<string>): string {
-  return parts.map(part => part.toLowerCase()).join('_');
 }
