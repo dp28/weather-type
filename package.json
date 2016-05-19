@@ -30,12 +30,10 @@
     "karma-mocha-reporter": "^2.0.2",
     "karma-notify-reporter": "^0.1.1",
     "karma-phantomjs-launcher": "^1.0.0",
-    "karma-sinon": "^1.0.4",
     "karma-typescript-preprocessor2": "^1.1.1",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
     "phantomjs-prebuilt": "^2.1.7",
-    "sinon": "^1.17.3",
     "typescript": "^1.8.10",
     "webpack": "^1.13.0"
   },
