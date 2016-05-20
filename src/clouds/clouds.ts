@@ -6,6 +6,7 @@ export enum Level {
   Broken,
   Light,
   Heavy,
+  Mist,
   Fog
 }
 

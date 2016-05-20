@@ -39,8 +39,13 @@ describe('Clouds', () => {
       itShouldBe('heavy_clouds');
     });
 
-    context('when Level is 4 (Level.Fog)', () => {
+    context('when Level is 4 (Level.Mist)', () => {
       before(() => level = 4);
+      itShouldBe('mist');
+    });
+
+    context('when Level is 5 (Level.Fog)', () => {
+      before(() => level = 5);
       itShouldBe('fog');
     });
   });
