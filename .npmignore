@@ -4,3 +4,7 @@ typings/
 src/
 .DS_Store
 npm-debug.log
+karma.conf.js
+tsconfig.json
+tsd.json
+webpack.config.js
