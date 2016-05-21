@@ -1,7 +1,7 @@
 {
   "name": "weather-type",
   "version": "0.0.0",
-  "description": "A library for comparing and averaging weather type strings",
+  "description": "A library for parsing weather type strings",
   "main": "dist/weather-type.js",
   "scripts": {
     "compile": "webpack --watch",

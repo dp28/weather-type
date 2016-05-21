@@ -1,6 +1,6 @@
 # weather-type
 
-A library for comparing and averaging weather type strings.
+A library for parsing weather type strings.
 
 ## Why
 
