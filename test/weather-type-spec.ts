@@ -10,12 +10,12 @@ import Precipitation from '../src/precipitation/precipitation';
 import { TRANSALATABLE_CODES } from './example-codes';
 
 describe('WeatherType', () => {
-  let stormLevel = new Storm(0);
+  let storm = new Storm(0);
   let precipitation = new Precipitation(0, 0, 0);
-  let cloudLevel = new Clouds(0);
+  let cloud = new Clouds(0);
 
   function buildCode(): string {
-    return new WeatherType(stormLevel, precipitation, cloudLevel).toCode();
+    return new WeatherType(storm, precipitation, cloud).toCode();
   }
 
   function stubReturning<T>(value: T): () => T {
@@ -27,7 +27,7 @@ describe('WeatherType', () => {
     context('when the Storm can be translated into a code', () => {
       let stormCode = 'storm_code';
 
-      before(() => stormLevel.toCode = stubReturning(new Some(stormCode)));
+      before(() => storm.toCode = stubReturning(new Some(stormCode)));
 
       it('should return that code', () => {
         expect(buildCode()).to.equal(stormCode);
@@ -35,7 +35,7 @@ describe('WeatherType', () => {
     });
 
     context('when the Storm cannot be translated into a code', () => {
-      before(() => stormLevel.toCode = stubReturning(new None<string>()));
+      before(() => storm.toCode = stubReturning(new None<string>()));
 
       context('when the Precipitation can be translated into a code', () => {
         let rainCode = 'rain_code';
@@ -52,7 +52,7 @@ describe('WeatherType', () => {
 
         before(() => {
           precipitation.toCode = stubReturning(new None<string>())
-          cloudLevel.toCode = stubReturning(cloudCode);
+          cloud.toCode = stubReturning(cloudCode);
         });
 
         it('should return the Clouds code', () => {

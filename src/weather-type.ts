@@ -37,14 +37,14 @@ export default class WeatherType {
   }
 
   constructor(
-    public stormLevel: Storm,
+    public storm: Storm,
     public precipitation: Precipitation,
-    public cloudLevel: Clouds
+    public clouds: Clouds
   ) {}
 
   public toCode(): string {
-    return this.stormLevel.toCode().unwrapOrElse(() => (
-      this.precipitation.toCode().unwrapOrElse(() => this.cloudLevel.toCode()))
+    return this.storm.toCode().unwrapOrElse(() => (
+      this.precipitation.toCode().unwrapOrElse(() => this.clouds.toCode()))
     );
   }
 }
