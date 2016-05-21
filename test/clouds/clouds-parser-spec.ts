@@ -10,7 +10,7 @@ describe('extractClouds', () => {
   function shouldReturnLevelForAll(level: Level, codes: Array<string>) {
     codes.forEach(code => {
       context(`when the code is "${code}"`, () => {
-        it(`should be return a Some of a Clouds instance with the Level "${Level[level]}"`, () => {
+        it(`should return a Some of a Clouds instance with the Level "${Level[level]}"`, () => {
           expect(extractClouds(code).unwrap().level).to.equal(level);
         });
       });
