@@ -20,7 +20,7 @@ npm install weather-type
 ```javascript
 var WeatherType = require('weather-type');
 
-WeatherType.fromString('Drizzle').map(weatherType => {
+WeatherType.default.fromString('Drizzle').map(weatherType => {
   weatherType.clouds.level === WeatherType.CloudLevel.Light; // true
   weatherType.clouds.level === WeatherType.CloudLevel.Heavy; // false
 
