@@ -99,3 +99,7 @@ export const OPEN_WEATHER_MAP = [
   'thunderstorm with drizzle',
   'thunderstorm with heavy drizzle'
 ]
+
+const translatableMetOffice = MET_OFFICE.filter(code => code !== 'No data');
+
+export const TRANSALATABLE_CODES = translatableMetOffice.concat(BBC).concat(OPEN_WEATHER_MAP);

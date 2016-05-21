@@ -1,11 +1,13 @@
 /// <reference path="../typings/mocha/mocha.d.ts" />
 
 import { expect } from 'chai';
+import { Some, None } from 'option-t';
+
 import WeatherType from '../src/weather-type';
 import Storm from '../src/storm/storm';
 import Clouds from '../src/clouds/clouds';
 import Precipitation from '../src/precipitation/precipitation';
-import { Some, None } from 'option-t';
+import { TRANSALATABLE_CODES } from './example-codes';
 
 describe('WeatherType', () => {
   let stormLevel = new Storm(0);
@@ -55,6 +57,24 @@ describe('WeatherType', () => {
 
         it('should return the Clouds code', () => {
           expect(buildCode()).to.equal(cloudCode);
+        });
+      });
+    });
+  });
+
+  describe('WeatherType.fromString', () => {
+    context('when a string that can become a Clouds instance is used', () => {
+      it('should return a Some of a WeatherType', () => {
+        TRANSALATABLE_CODES.forEach(code => {
+          expect(WeatherType.fromString(code).isSome).to.be.true
+        });
+      });
+    });
+
+    context('when a string that cannot become a Clouds instance is used', () => {
+      it('should return a None', () => {
+        ['No data', 'unknown', 'fail'].forEach(code => {
+          expect(WeatherType.fromString(code).isNone).to.be.true
         });
       });
     });
