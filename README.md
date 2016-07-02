@@ -93,11 +93,19 @@ Possible values of `type`:
 * `2` (corresponds to `'snow'`)
 * `2` (corresponds to `'hail'`)
 
+### `Precipitation#isApplicable(): boolean`
+
+Returns `true` if `level` rounds to a value greater that `0`.
+
 ### `new Storm(level: number)`
 
 Possible values of `level`:
 * `0` (corresponds to `'none'`)
 * `1` (corresponds to `'thunderstorm'`)
+
+### `Storm#isApplicable(): boolean`
+
+Returns `true` if `level` rounds to a value greater that `0`.
 
 ## Description codes
 

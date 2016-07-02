@@ -10,11 +10,18 @@ export enum Level {
 export default class Storm {
   constructor(public level: number) {}
 
+  public isApplicable(): boolean {
+    return Level[this.levelCode] !== Level.None;
+  }
+
   public toCode(): Option<string> {
-    const levelCode = getClosestName(Level, this.level);
-    if (Level[levelCode] === Level.None)
-      return new None<string>()
+    if (this.isApplicable())
+      return new Some(buildWeatherCode([this.levelCode]));
     else
-      return new Some(buildWeatherCode([levelCode]));
+      return new None<string>();
+  }
+
+  private get levelCode(): string {
+    return getClosestName(Level, this.level)
   }
 }

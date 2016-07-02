@@ -11,25 +11,58 @@ describe('Precipitation', () => {
   let duration = 0;
   let type = 0;
 
-  function buildCodeOption(): Option<string> {
-    return new Precipitation(level, duration, type).toCode();
+  function buildPrecipitation(): Precipitation {
+    return new Precipitation(level, duration, type);
   }
 
-  function buildCode(): string {
-    return buildCodeOption().unwrap();
-  }
+  describe('#isApplicable', () => {
+    function isApplicable(): boolean {
+      return buildPrecipitation().isApplicable();
+    }
 
-  describe('#toCode', () => {
     context('when PrecipitationLevel is', () => {
       context('0 (Level.None)', () => {
-        beforeEach(() => level = 0)
+        beforeEach(() => level = 0);
+        it('should return false', () => {
+          expect(isApplicable()).to.be.false;
+        });
+      });
+
+      context('negative', () => {
+        beforeEach(() => level = -1);
+        it('should return false', () => {
+          expect(isApplicable()).to.be.false;
+        });
+      });
+
+      [Level.Light, Level.Heavy].map(levelValue => {
+        beforeEach(() => level = levelValue);
+        it('should return false', () => {
+          expect(isApplicable()).to.be.true;
+        });
+      });
+    });
+  });
+
+  describe('#toCode', () => {
+    function buildCodeOption(): Option<string> {
+      return buildPrecipitation().toCode();
+    }
+
+    function buildCode(): string {
+      return buildCodeOption().unwrap();
+    }
+
+    context('when PrecipitationLevel is', () => {
+      context('0 (Level.None)', () => {
+        beforeEach(() => level = 0);
         it('should return None', () => {
           expect(buildCodeOption().isNone).to.eq(true);
         });
       });
 
       context('negative', () => {
-        beforeEach(() => level = -1)
+        beforeEach(() => level = -1);
         it('should return None', () => {
           expect(buildCodeOption().isNone).to.eq(true);
         });
@@ -37,7 +70,7 @@ describe('Precipitation', () => {
 
       [Level.Light, Level.Heavy].map(levelValue => {
         context(`${levelValue} (Level.${Level[levelValue]})`, () => {
-          beforeEach(() => level = levelValue)
+          beforeEach(() => level = levelValue);
 
           getAllNames(Type).map(typeName => {
             context(`and the Type value is ${Type[typeName]} (Type.${typeName})`, () => {

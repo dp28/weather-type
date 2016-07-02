@@ -27,11 +27,15 @@ export default class Precipitation {
     public type: number
   ) {}
 
+  public isApplicable(): boolean {
+    return this.level && getClosestName(Level, this.level) !== Level[Level.None];
+  }
+
   public toCode(): Option<string> {
-    if (!this.level || getClosestName(Level, this.level) === Level[Level.None])
-      return new None<string>()
-    else
+    if (this.isApplicable())
       return new Some(this.buildCode());
+    else
+      return new None<string>();
   }
 
   private buildCode(): string {
