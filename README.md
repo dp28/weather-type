@@ -93,6 +93,10 @@ Possible values of `type`:
 * `2` (corresponds to `'snow'`)
 * `2` (corresponds to `'hail'`)
 
+Each of these values, apart from `none`, has an associated boolean reader, eg
+`isLight()`, for convenience. They return `true` if the appropriate variable
+corresponds to the specified value.
+
 ### `Precipitation#isApplicable(): boolean`
 
 Returns `true` if `level` rounds to a value greater that `0`.

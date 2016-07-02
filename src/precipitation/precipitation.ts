@@ -28,7 +28,39 @@ export default class Precipitation {
   ) {}
 
   public isApplicable(): boolean {
-    return this.level && getClosestName(Level, this.level) !== Level[Level.None];
+    return !!this.level && getClosestName(Level, this.level) !== Level[Level.None];
+  }
+
+  public isLight(): boolean {
+    return getClosestName(Level, this.level) === Level[Level.Light];
+  }
+
+  public isHeavy(): boolean {
+    return getClosestName(Level, this.level) === Level[Level.Heavy];
+  }
+
+  public isShowers(): boolean {
+    return getClosestName(Duration, this.duration) === Duration[Duration.Showers];
+  }
+
+  public isSteady(): boolean {
+    return getClosestName(Duration, this.duration) === Duration[Duration.Steady];
+  }
+
+  public isRain(): boolean {
+    return this.isType(Type.Rain);
+  }
+
+  public isSleet(): boolean {
+    return this.isType(Type.Sleet);
+  }
+
+  public isSnow(): boolean {
+    return this.isType(Type.Snow);
+  }
+
+  public isHail(): boolean {
+    return this.isType(Type.Hail);
   }
 
   public toCode(): Option<string> {
@@ -47,5 +79,9 @@ export default class Precipitation {
     if (duration !== Duration[Duration.Steady])
       codeParts.push(duration);
     return buildWeatherCode(codeParts);
+  }
+
+  private isType(type: Type): boolean {
+    return getClosestName(Type, this.type) === Type[type];
   }
 }
