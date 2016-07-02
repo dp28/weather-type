@@ -20,4 +20,32 @@ export default class Clouds {
       codeParts.push('clouds');
     return buildWeatherCode(codeParts);
   }
+
+  public isClear(): boolean {
+    return this.isLevel(Level.Clear);
+  }
+
+  public isBroken(): boolean {
+    return this.isLevel(Level.Broken);
+  }
+
+  public isLight(): boolean {
+    return this.isLevel(Level.Light);
+  }
+
+  public isHeavy(): boolean {
+    return this.isLevel(Level.Heavy);
+  }
+
+  public isMist(): boolean {
+    return this.isLevel(Level.Mist);
+  }
+
+  public isFog(): boolean {
+    return this.isLevel(Level.Fog);
+  }
+
+  private isLevel(level: Level): boolean {
+    return getClosestName(Level, this.level) === Level[level];
+  }
 }

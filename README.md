@@ -76,6 +76,9 @@ Possible values of `level`:
 * `4` (corresponds to `'mist'`)
 * `5` (corresponds to `'fog'`)
 
+Each of these values has an associated boolean reader, eg `isClear()`, for 
+convenience, which returns `true` if `level` rounds to the corresponding value. 
+
 ### `new Precipitation(level: number, duration: number, type: number)`
 
 Possible values of `level`:
